@@ -1,0 +1,230 @@
+fluid
+{
+
+     Sutherland_law  0.0906  0.0001406
+     Isothermal_T    273.0  
+
+
+     ch
+     {
+         h2o 
+     } 
+
+
+
+     ch  
+     {
+         ideal_gas  air 
+     }
+
+
+     ch  
+     {
+         ideal_gas       air  
+     }
+
+
+     ch  
+     {
+         ideal_gas     custom  
+         molar_mass    0.24  
+         gamma         0.376
+     }
+
+
+
+     ch  
+     {
+         custom         
+         rho            1.e3
+         mu             1.e-3
+         cp             4179.0
+         kappa          0.608
+         alpha          1.e-9                      // for incompressible fluid flow set it to 0.0
+         beta           1.e-12                     // for incompressible fluid flow set it to 0.0
+     }
+
+
+
+
+
+
+
+
+     mix_of_ch  
+     {  
+        ch
+        {
+            h2o  
+        } 
+
+        ch  
+        {
+            ideal_gas  air  
+        }
+
+        ch  
+        {
+            ideal_gas    custom  
+            molar_mass   0.24  
+            gamma        0.376
+        } 
+  
+        ch  
+        {
+            custom        
+            rho           1.e3
+            mu            1.e-3
+            cp            4179.0
+            kappa         0.608
+            alpha         1.e-9
+            beta          1.e-12
+        }   
+     }
+
+
+
+
+
+
+
+     mix_of_mix     
+     {
+        ch_as_mix  
+        {
+            ch  
+            {
+                 custom       
+                 rho          3000.0
+                 mu           1.e7
+                 cp           4000.0
+                 kappa        1.5     
+                 alpha        1.e-10     
+                 beta         1.e-10
+            }     
+        }     
+   
+        custom_mix
+        {
+            rho          3000.0
+            mu           1.e7
+            cp           4000.0
+            kappa        1.5
+            alpha        1.e-10
+            beta         1.e-10   
+        }        
+
+        magma_mix      
+        {
+            name                  HP_stromboli
+            oxide_wf              0.5273, 0.016, 0.156, 0.02, 0.0865, 0.002, 0.0376, 0.0768, 0.0355, 0.0422                       
+            melt_kappa            1.5
+       
+            h2o_wf                0.001
+            h2o_l_cp              2278.0
+            h2o_l_kappa           0.64
+       
+            co2_wf                0.001
+            co2_l_cp              2278.0
+            co2_l_kappa           0.64
+       
+            crystal_fraction      0.5
+            crystal_rho           3000.0
+            gas_on_mu_model       none
+            crystal_on_mu_model   Caricchi
+        }
+
+        magma_mix 
+        {
+            name                  LP_stromboli
+            oxide_wf              0.5030, 0.0095, 0.1831, 0.0279, 0.0560, 0.0016, 0.0517, 0.1269, 0.0242, 0.0171                       
+            melt_kappa            1.5
+
+            h2o_wf                0.035
+            h2o_l_cp              2278.0
+            h2o_l_kappa           0.64
+
+            co2_wf                0.035
+            co2_l_cp              2278.0
+            co2_l_kappa           0.64
+
+            crystal_fraction      0.0
+            crystal_rho           0.0
+            gas_on_mu_model       Ishii_Zuber
+            crystal_on_mu_model   none
+        }
+
+     }            
+}
+
+
+
+
+
+
+
+
+solid
+{
+   material        Hookes   or   SVK   or   Neo Hookean
+   
+   plane_strain    F
+   plane_stress    F
+   axisymmetric    T
+
+   rho             1.e2
+   E               2.9e5
+   nu              0.35
+
+   heterogeneous
+   {
+     layer
+     {
+        y_min          -1000.0     
+        y_max           0.0
+        rho             28.e2
+        E               80.e9
+        nu              0.35      
+     }
+   
+     layer
+     {
+        y_min          -5000.0
+        y_max          -1000.0
+        rho             25.e2
+        E               60.e9
+        nu              0.35      
+     }
+   }
+   
+   nb_Maxwell_el   2
+   Max_el_E        1.0     1.0
+   Max_el_eta      1.0     1.0
+   
+   a_damping     0.0
+   b_damping     0.0
+}
+
+
+
+
+
+
+
+
+heat_equation
+{
+     rho       2500.0
+     cp        3000.0
+     kappa     1.0
+}
+
+
+
+adv_diff
+{
+     rho       1.e3
+     mu        1.e-3  
+}
+
+

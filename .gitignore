@@ -1,0 +1,40 @@
+
+# folders to ignore
+results*
+make
+lookuptable
+tpl/src
+tpl/tpl
+tpl/anaconda3
+
+
+# binary files to ignore
+executable
+executable_pp
+tpl/solwcad/solwcad_p
+tpl/solwcad/solwcad_pT
+ex_utils.pyc
+__pycache__
+tpl/gales_mesh_preprocessing/__pycache__
+tpl/gales_results_postprocessing/__pycache__
+
+
+# files to ignore
+log*
+log.txt
+log_old
+*.e*
+*.o*
+*.btr*
+launch.pbs
+run.sh
+*.msh
+*core.txt
+neumann_data.txt
+fsi_nd.txt
+
+
+# files not to ignore
+!input_solwcad.txt
+
+
