@@ -1,0 +1,35 @@
+fluid
+{
+     mix_of_mix     
+     {
+        magma_mix      
+        {
+            name                  shoshonite
+            oxide_wf              0.5247, 0.0085, 0.1760, 0.0188, 0.0574, 0.0012, 0.0360, 0.0793, 0.0343, 0.0428                       
+            
+            h2o_wf                0.02
+            co2_wf                0.01
+       
+            crystal_fraction      0.0
+            crystal_rho           0.0
+            gas_on_mu_model       Ishii_Zuber
+            crystal_on_mu_model   none
+        }
+
+        magma_mix 
+        {
+            name                  phonolite
+            oxide_wf              0.5352, 0.0060, 0.1984, 0.0160, 0.0320, 0.0014, 0.0176, 0.0676, 0.0466, 0.0791                       
+
+            h2o_wf                0.077
+            co2_wf                0.01
+
+            crystal_fraction      0.0
+            crystal_rho           0.0
+            gas_on_mu_model       Ishii_Zuber
+            crystal_on_mu_model   none
+        }
+     }            
+}
+
+

@@ -1,0 +1,33 @@
+fluid_mesh_file   mesh_192core.txt
+
+delta_t           0.01
+final_time        1.0
+restart           F
+restart_time      0.0
+n_max_it          3
+print_freq        100
+
+ls_solver         Flexible GMRES
+ls_precond        ILU
+ls_rel_res_tol    1.e-9
+ls_maxsubspace    200
+ls_maxrestarts    5
+ls_maxiters      -1
+ls_fill           1
+
+adaptive_time_step    F
+dt_min                0.01
+dt_max                0.5
+N                     10
+CFL                   0.5
+
+steady_state                F
+tau_non_diag_comp_2001      F
+tau_non_diag_comp_2019      T
+tau_diag_incomp_2007        F
+tau_diag_2014               F
+dc_2006                     T
+dc_sharp                    2.0 
+dc_scale_fact               1.0
+
+t_dependent_dirichlet_bc    F 

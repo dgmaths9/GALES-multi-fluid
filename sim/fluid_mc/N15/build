@@ -1,0 +1,9 @@
+cmake .
+make
+rm -r make
+mkdir make
+mv CMakeFiles make/
+mv CMakeCache.txt make/
+mv cmake_install.cmake make/
+mv Makefile make/
+rm -r make

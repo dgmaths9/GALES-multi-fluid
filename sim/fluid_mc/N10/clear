@@ -1,0 +1,5 @@
+rm -r results
+rm executable
+rm -r make CMakeCache.txt  CMakeFiles cmake_install.cmake Makefile
+rm *.e* *.o* *btr *~
+rm *pid*
